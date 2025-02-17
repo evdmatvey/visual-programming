@@ -4,10 +4,11 @@ function orderBy(arr, props) {
 
   return arr.sort((a, b) => {
     for (const prop of props) {
-      if (!(prop in a || prop in b))
+      if (!(prop in a && prop in b))
         throw new Error(`Property "${prop}" not found in object`);
 
-      return a[prop] < b[prop] ? -1 : 1;
+      if (a[prop] < b[prop]) return -1;
+      else if (a[prop] > b[prop]) return 1;
     }
 
     return 0;

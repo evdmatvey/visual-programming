@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/orderBy.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node src/main.js"
   },
   "keywords": [],
   "author": "",
