@@ -1,0 +1,18 @@
+.card {
+  width: 200px;
+  background: skyblue;
+}
+
+.card div {
+  font-weight: 600;
+}
+
+.card span {
+  font-weight: 400;
+}
+
+.name,
+.address {
+  padding: 10px 0;
+  padding-left: 30px;
+}
