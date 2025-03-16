@@ -10,11 +10,11 @@ export const useFetchBookInfo = (isbn) => {
     const fetchBookInfo = async () => {
       const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn%3A${isbn}`);
 
-      if (res.status === 429 && retries < 6 && !bookInfo) {
+      if (res.status === 429 && retries < 10 && !bookInfo) {
         retries++;
         timeoutId = setTimeout(() => {
           fetchBookInfo();
-        }, 2000);
+        }, 1000);
         return;
       }
 

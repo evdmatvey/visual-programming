@@ -1,8 +1,20 @@
 .root {
   width: 200px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  background: #fff;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.15s ease-in;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
 }
 
 .title {

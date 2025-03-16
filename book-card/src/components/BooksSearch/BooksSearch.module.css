@@ -1,0 +1,43 @@
+.root {
+  width: 250px;
+  position: relative;
+}
+
+.clear {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+
+    & path {
+      fill: #9f9f9f;
+    }
+  }
+}
+
+.field {
+  width: 250px;
+  padding: 9px 16px;
+  border: 1px solid #c2c2c2;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.15s linear;
+  font-size: 16px;
+
+  &:focus {
+    border-color: #9f9f9f;
+  }
+}
