@@ -1,0 +1,13 @@
+.root {
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+}

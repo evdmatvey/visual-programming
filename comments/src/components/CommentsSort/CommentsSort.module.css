@@ -1,0 +1,97 @@
+.root {
+  width: 100px;
+  position: relative;
+}
+
+.heading {
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #9a9a9a;
+  border: 1px solid #9a9a9a;
+  border-radius: 8px;
+  transition: all 0.15s linear;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+
+    & path {
+      fill: #9a9a9a;
+      transition: all 0.15s linear;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: #777777;
+      color: #777777;
+
+      & svg path {
+        fill: #777777;
+      }
+    }
+  }
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+}
+
+.variants {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.variant {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #9a9a9a;
+  cursor: pointer;
+  transition: all 0.15s linear;
+
+  & svg path {
+    fill: #9a9a9a;
+    transition: all 0.15s linear;
+  }
+
+  &.active {
+    color: #202020;
+
+    & svg path {
+      fill: #202020;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: #777777;
+
+      & svg path {
+        fill: #777777;
+      }
+
+      &.active {
+        color: #202020;
+
+        & svg path {
+          fill: #202020;
+        }
+      }
+    }
+  }
+}
