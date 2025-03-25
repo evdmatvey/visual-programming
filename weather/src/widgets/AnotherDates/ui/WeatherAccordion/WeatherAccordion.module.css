@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.timings {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+[data-time='day'] .heading {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+[data-time='night'] .heading {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+[data-time='day'] .timings {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+[data-time='night'] .timings {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.timing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.timing img {
+  width: 50px;
+  height: 50px;
+}

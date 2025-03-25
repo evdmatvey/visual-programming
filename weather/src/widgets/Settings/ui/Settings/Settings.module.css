@@ -1,0 +1,67 @@
+.root {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.settings button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+[data-time='day'] .settings button svg path {
+  fill: #000;
+}
+
+[data-time='night'] .settings button svg path {
+  fill: #fff;
+}
+
+.popup {
+  width: 160px;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+[data-time='day'] .popup {
+  background: #fff;
+}
+
+[data-time='night'] .popup {
+  background: #000;
+}
+
+.search {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: var(--font-family);
+  background: transparent;
+}
+
+[data-time='day'] .search {
+  border: 1px solid #000;
+  color: #000;
+}
+
+[data-time='night'] .search {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.city {
+  cursor: pointer;
+}

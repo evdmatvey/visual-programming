@@ -1,0 +1,178 @@
+:root {
+  --font-family: 'Nunito', sans-serif;
+  --clear-sky-day-one: #00adef;
+  --clear-sky-day-two: #00d2ea;
+  --few-clouds-day-one: #0096d1;
+  --few-clouds-day-two: #00b0c3;
+  --scattered-clouds-day-one: #008ec6;
+  --scattered-clouds-day-two: #00b1c5;
+  --broken-clouds-day-one: #075693;
+  --broken-clouds-day-two: #07808d;
+  --shower-rain-day-one: #0468db;
+  --shower-rain-day-two: #0090d8;
+  --rain-day-one: #036890;
+  --rain-day-two: #0974a9;
+  --thunderstorm-day-one: #0a5b7a;
+  --thunderstorm-day-two: #035b86;
+  --snow-day-one: #0677be;
+  --snow-day-two: #0664b1;
+  --mist-day-one: #0a6299;
+  --mist-day-two: #063e6c;
+
+  --clear-sky-night-one: #155872;
+  --clear-sky-night-two: #0c5058;
+  --few-clouds-night-one: #115069;
+  --few-clouds-night-two: #0d4c53;
+  --scattered-clouds-night-one: #0c4860;
+  --scattered-clouds-night-two: #22595f;
+  --broken-clouds-day-one: #0b4c7e;
+  --broken-clouds-day-two: #104c52;
+  --shower-rain-night-one: #1b426e;
+  --shower-rain-night-two: #194c66;
+  --rain-night-one: #0f3b4c;
+  --rain-night-two: #0e3c52;
+  --thunderstorm-night-one: #0e3c4e;
+  --thunderstorm-night-two: #082230;
+  --snow-night-one: #2b4657;
+  --snow-night-two: #304352;
+  --mist-night-one: #0a4399;
+  --mist-night-two: #09458e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 100px 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.15s ease-in;
+}
+
+[data-time='day'] {
+  color: #000;
+}
+
+[data-time='night'] {
+  color: #fff;
+}
+
+[data-time='day'][data-weather='clear-sky'] {
+  background: linear-gradient(45deg, var(--clear-sky-day-one) 0%, var(--clear-sky-day-two) 100%);
+}
+
+[data-time='night'][data-weather='clear-sky'] {
+  background: linear-gradient(
+    45deg,
+    var(--clear-sky-night-one) 0%,
+    var(--clear-sky-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='few-clouds'] {
+  background: linear-gradient(45deg, var(--few-clouds-day-one) 0%, var(--few-clouds-day-two) 100%);
+}
+
+[data-time='night'][data-weather='few-clouds'] {
+  background: linear-gradient(
+    45deg,
+    var(--few-clouds-night-one) 0%,
+    var(--few-clouds-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='scattered-clouds'] {
+  background: linear-gradient(
+    45deg,
+    var(--scattered-clouds-day-one) 0%,
+    var(--scattered-clouds-day-two) 100%
+  );
+}
+
+[data-time='night'][data-weather='scattered-clouds'] {
+  background: linear-gradient(
+    45deg,
+    var(--scattered-clouds-night-one) 0%,
+    var(--scattered-clouds-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='broken-clouds'] {
+  background: linear-gradient(
+    45deg,
+    var(--broken-clouds-day-one) 0%,
+    var(--broken-clouds-day-two) 100%
+  );
+}
+
+[data-time='night'][data-weather='broken-clouds'] {
+  background: linear-gradient(
+    45deg,
+    var(--broken-clouds-night-one) 0%,
+    var(--broken-clouds-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='shower-rain'] {
+  background: linear-gradient(
+    45deg,
+    var(--shower-rain-day-one) 0%,
+    var(--shower-rain-day-two) 100%
+  );
+}
+
+[data-time='night'][data-weather='shower-rain'] {
+  background: linear-gradient(
+    45deg,
+    var(--shower-rain-night-one) 0%,
+    var(--shower-rain-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='rain'] {
+  background: linear-gradient(45deg, var(--rain-day-one) 0%, var(--rain-day-two) 100%);
+}
+
+[data-time='night'][data-weather='rain'] {
+  background: linear-gradient(45deg, var(--rain-night-one) 0%, var(--rain-night-two) 100%);
+}
+
+[data-time='day'][data-weather='thunderstorm'] {
+  background: linear-gradient(
+    45deg,
+    var(--thunderstorm-day-one) 0%,
+    var(--thunderstorm-day-two) 100%
+  );
+}
+
+[data-time='night'][data-weather='thunderstorm'] {
+  background: linear-gradient(
+    45deg,
+    var(--thunderstorm-night-one) 0%,
+    var(--thunderstorm-night-two) 100%
+  );
+}
+
+[data-time='day'][data-weather='snow'] {
+  background: linear-gradient(45deg, var(--snow-day-one) 0%, var(--snow-day-two) 100%);
+}
+
+[data-time='night'][data-weather='snow'] {
+  background: linear-gradient(45deg, var(--snow-night-one) 0%, var(--snow-night-two) 100%);
+}
+
+[data-time='day'][data-weather='mist'] {
+  background: linear-gradient(45deg, var(--mist-day-one) 0%, var(--mist-day-two) 100%);
+}
+
+[data-time='night'][data-weather='mist'] {
+  background: linear-gradient(45deg, var(--mist-night-one) 0%, var(--mist-night-two) 100%);
+}

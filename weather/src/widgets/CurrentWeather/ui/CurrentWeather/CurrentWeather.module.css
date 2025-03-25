@@ -1,0 +1,95 @@
+.root {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  gap: 20px;
+}
+
+.card {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+[data-time='day'] .card {
+  background: rgba(225, 225, 225, 0.5);
+}
+
+[data-time='night'] .card {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.timings {
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+[data-time='day'] .timings {
+  background: rgba(225, 225, 225, 0.5);
+}
+
+[data-time='night'] .timings {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+.timing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.timing img {
+  width: 50px;
+  height: 50px;
+}
