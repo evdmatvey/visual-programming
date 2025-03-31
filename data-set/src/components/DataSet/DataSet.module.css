@@ -1,0 +1,12 @@
+.selectedRow {
+  background-color: #fcb3b3;
+}
+
+.selectionHandle {
+  cursor: pointer;
+  border-right: 2px solid #e33408;
+}
+
+.selectionHandle:hover {
+  background-color: #f3a38b;
+}
