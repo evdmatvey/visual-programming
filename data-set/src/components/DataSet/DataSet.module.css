@@ -1,3 +1,15 @@
+.root {
+  border: 1px solid #e33408;
+  border-spacing: 0;
+}
+
+.root th,
+.root td {
+  padding: 10px;
+  border-top: 1px solid #e33408;
+  border-right: 1px solid #e33408;
+}
+
 .selectedRow {
   background-color: #fcb3b3;
 }

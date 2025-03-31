@@ -2,25 +2,25 @@ import React from 'react';
 import { DataSet } from './components/DataSet';
 
 const users = [
-  { id: '1', name: 'Alice', email: 'alice@example.com' },
-  { id: '2', name: 'Bob', email: 'bob@example.com' },
-  { id: '3', name: 'Bob', email: 'bob@example.com' },
-  { id: '4', name: 'Bob', email: 'bob@example.com' },
-  { id: '5', name: 'Bob', email: 'bob@example.com' },
+  { id: '1', name: 'Alice', debit: 1 },
+  { id: '2', name: 'Bob', debit: 142 },
+  { id: '3', name: 'Bob', debit: 12 },
+  { id: '4', name: 'Bob', debit: 124 },
+  { id: '5', name: 'Bob', debit: 23 },
 ];
 
 export const App = () => {
   const headerRender = (columnId) => {
-    if (columnId === 'email') {
-      return <span>Email Address</span>;
+    if (columnId === 'debit') {
+      return <span>Balance</span>;
     }
     return columnId;
   };
 
   const cellRender = (value, columnId, row) => {
     console.log(row);
-    if (columnId === 'email') {
-      return <a href={`mailto:${value}`}>{value}</a>;
+    if (columnId === 'debit') {
+      return <span>{value.toFixed(2)}</span>;
     }
     return value;
   };
@@ -32,7 +32,7 @@ export const App = () => {
         columns={[
           { id: 'id', title: 'ID' },
           { id: 'name', title: 'Name' },
-          { id: 'email', title: 'Email' },
+          { id: 'debit', title: 'debit' },
         ]}
         headerRender={headerRender}
         cellRender={cellRender}

@@ -30,7 +30,7 @@ export const DataSet = ({ data, columns, headerRender, cellRender }) => {
   }, []);
 
   return (
-    <table>
+    <table className={styles.root}>
       <thead>
         <tr>
           <th key="selection-column" style={{ width: '40px' }} />

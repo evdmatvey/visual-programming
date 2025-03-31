@@ -1,0 +1,16 @@
+.root {
+  padding: 5px;
+  border: 1px solid #14eeee;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header {
+  cursor: pointer;
+}
+
+.content {
+  border: 1px solid #14eeee;
+  padding: 20px;
+}
