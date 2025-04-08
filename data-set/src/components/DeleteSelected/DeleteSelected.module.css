@@ -1,0 +1,16 @@
+.root {
+  height: 40px;
+  padding: 7px 30px;
+  border-radius: 10px;
+  border: 1px solid #474747;
+  background: #e3f2fd;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.15s linear;
+  align-self: flex-start;
+}
+
+.root:hover {
+  background: #2196f3;
+}

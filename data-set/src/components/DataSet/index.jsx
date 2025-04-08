@@ -1,9 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import styles from './DataSet.module.css';
 
-export const DataSet = ({ data, columns, headerRender, cellRender }) => {
-  const [selectedRows, setSelectedRows] = useState(new Set());
-
+export const DataSet = ({
+  data,
+  columns,
+  headerRender,
+  cellRender,
+  selectedRows,
+  setSelectedRows,
+}) => {
   const tableColumns =
     columns ||
     Object.keys(data[0] || {}).map((key) => ({
@@ -11,7 +16,7 @@ export const DataSet = ({ data, columns, headerRender, cellRender }) => {
       title: key,
     }));
 
-  const handleRowSelect = useCallback((event, rowId) => {
+  const handleRowSelect = (event, rowId) => {
     event.preventDefault();
     setSelectedRows((prev) => {
       const newSelection = new Set(prev);
@@ -25,9 +30,10 @@ export const DataSet = ({ data, columns, headerRender, cellRender }) => {
         newSelection.clear();
         newSelection.add(rowId);
       }
+
       return newSelection;
     });
-  }, []);
+  };
 
   return (
     <table className={styles.root}>
@@ -42,17 +48,17 @@ export const DataSet = ({ data, columns, headerRender, cellRender }) => {
 
       <tbody>
         {data.map((row, index) => {
-          const isSelected = selectedRows.has(String(index));
+          const isSelected = selectedRows.has(row.id ?? index);
 
           return (
             <tr key={index} className={isSelected ? styles.selectedRow : ''}>
               <td
                 className={styles.selectionHandle}
-                onClick={(e) => handleRowSelect(e, String(index))}
+                onClick={(e) => handleRowSelect(e, row.id ?? String(index))}
               />
               {tableColumns.map((column) => (
                 <td key={column.id}>
-                  {cellRender?.(row[column.id], column.id, row) || row[column.id]}
+                  {cellRender?.(row[column.id], isSelected, column.id, row) || row[column.id]}
                 </td>
               ))}
             </tr>

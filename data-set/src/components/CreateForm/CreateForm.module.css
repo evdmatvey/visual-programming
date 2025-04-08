@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  gap: 20px;
+}
+
+.input {
+  height: 40px;
+  width: 200px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: 1px solid #474747;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button {
+  height: 40px;
+  padding: 7px 30px;
+  border-radius: 10px;
+  border: 1px solid #474747;
+  background: #e3f2fd;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  transition: all 0.15s linear;
+}
+
+.button:hover {
+  background: #2196f3;
+}
