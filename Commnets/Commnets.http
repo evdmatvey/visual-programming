@@ -1,0 +1,6 @@
+@Commnets_HostAddress = http://localhost:5241
+
+GET {{Commnets_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
