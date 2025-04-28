@@ -1,0 +1,27 @@
+.root {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  font-size: 16px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.root:focus {
+  outline: none;
+
+  border-color: #000;
+}
+
+.content {
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.content.small {
+  width: 30px;
+}

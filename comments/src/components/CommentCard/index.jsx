@@ -11,7 +11,7 @@ export const CommentCard = ({ comment }) => {
       </div>
       <div className={styles.body}>{body}</div>
       <div className={styles.info}>
-        {id}: ${postId}
+        id-{id}: postId-{postId}
       </div>
     </div>
   );

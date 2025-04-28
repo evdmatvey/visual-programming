@@ -20,7 +20,7 @@ const App = () => {
         signal: abortController.current.signal,
       });
 
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
 
       const result = await response.json();
       setData(result);
@@ -66,10 +66,10 @@ const App = () => {
   return (
     <div>
       {isLoading ? (
-        <div>
+        <div className="wrapper">
           <ProgressBar title="Loading countries..." percentage={progress} isCanceled={isCanceled} />
           <button className="button" onClick={handleCancel} disabled={isCanceled}>
-            Отмена
+            X
           </button>
         </div>
       ) : (

@@ -3,3 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+.root {
+  padding-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.child {
+  padding-left: 40px;
+  color: #eee;
+  cursor: not-allowed;
+}

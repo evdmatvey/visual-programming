@@ -1,0 +1,83 @@
+.root {
+  border: 1px solid #afafaf;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.root td {
+  overflow: hidden;
+  height: 20px;
+  padding: 12px 16px;
+  border-top: 1px solid #afafaf;
+  border-right: 1px solid #afafaf;
+  color: #333;
+  transition: background-color 0.2s ease;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.root th {
+  padding: 14px 16px;
+  border-right: 1px solid #afafaf;
+  background-color: #f8f9fa;
+  color: #444;
+  font-weight: 600;
+  text-align: left;
+  position: sticky;
+  top: 0;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.root tr:hover td {
+  background-color: #cde5f6;
+}
+
+.selectedRow {
+  background-color: #e3f2fd;
+  position: relative;
+}
+
+.selectedRow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #2196f3;
+}
+
+.selectionHandle {
+  cursor: pointer;
+  border-right: 2px solid #afafaf;
+  width: 40px;
+  text-align: center;
+  color: #666;
+}
+
+.selectionHandle:hover {
+  background-color: #afafaf;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: #e3f2fd;
+  }
+}
+
+.selectedRow {
+  animation: fadeIn 0.3s ease-out;
+}

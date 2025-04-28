@@ -14,7 +14,7 @@ export const DataGridNode = ({ node, renderHeader, renderChildren }) => {
   return (
     <div>
       <div onClick={handleToggle}>
-        {renderHeader(node.header)}
+        {renderHeader(node.header, isOpen, hasChildren)}
         {hasChildren && (isOpen ? ' ' : ' ')}
       </div>
       {isOpen && hasChildren && (

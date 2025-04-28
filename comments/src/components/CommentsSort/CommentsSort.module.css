@@ -9,8 +9,8 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  color: #9a9a9a;
-  border: 1px solid #9a9a9a;
+  color: #000;
+  border: 1px solid #000;
   border-radius: 8px;
   transition: all 0.15s linear;
 
@@ -19,19 +19,8 @@
     height: 20px;
 
     & path {
-      fill: #9a9a9a;
+      fill: #000;
       transition: all 0.15s linear;
-    }
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      border-color: #777777;
-      color: #777777;
-
-      & svg path {
-        fill: #777777;
-      }
     }
   }
 }

@@ -16,6 +16,8 @@ export const DataSet = ({
       title: key,
     }));
 
+  const getRowId = (row) => row.id || Math.random().toString(36).substr(2, 9);
+
   const handleRowSelect = (event, rowId) => {
     event.preventDefault();
     setSelectedRows((prev) => {
@@ -47,17 +49,16 @@ export const DataSet = ({
       </thead>
 
       <tbody>
-        {data.map((row, index) => {
-          const isSelected = selectedRows.has(row.id ?? index);
+        {data.map((row) => {
+          const rowId = getRowId(row);
+          const isSelected = selectedRows.has(rowId);
 
           return (
-            <tr key={index} className={isSelected ? styles.selectedRow : ''}>
-              <td
-                className={styles.selectionHandle}
-                onClick={(e) => handleRowSelect(e, row.id ?? String(index))}
-              />
+            <tr key={rowId} className={isSelected ? styles.selectedRow : ''}>
+              <td className={styles.selectionHandle} onClick={(e) => handleRowSelect(e, rowId)} />
+
               {tableColumns.map((column) => (
-                <td key={column.id}>
+                <td key={`${rowId}-${column.id}`}>
                   {cellRender?.(row[column.id], isSelected, column.id, row) || row[column.id]}
                 </td>
               ))}

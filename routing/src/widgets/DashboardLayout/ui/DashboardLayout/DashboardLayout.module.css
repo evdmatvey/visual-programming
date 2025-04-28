@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.content {
+  padding-right: 10px;
+  width: calc(100vw - 270px);
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  border-radius: 12px;
+}

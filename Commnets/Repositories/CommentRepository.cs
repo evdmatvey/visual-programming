@@ -1,40 +1,55 @@
-namespace Commnets.Repositories;
-
 using Commnets.Models;
+using Commnets.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace Commnets.Repositories;
 
 public class CommentRepository : ICommentRepository
 {
-    private readonly Dictionary<int, Comment> _comments = new();
-    private int _nextId = 1;
+    private readonly ApplicationDbContext _context;
 
-    public IEnumerable<Comment> GetAll() => _comments.Values;
+    public CommentRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
 
-    public Comment? GetById(int id) => _comments.GetValueOrDefault(id);
+    public IEnumerable<Comment> GetAll()
+    {
+        return _context.Comments.AsNoTracking().ToList();
+    }
+
+    public Comment? GetById(int id)
+    {
+        return _context.Comments.AsNoTracking().FirstOrDefault(c => c.Id == id);
+    }
 
     public void Add(Comment comment)
     {
-        comment.Id = _nextId++;
-        _comments[comment.Id] = comment;
+        _context.Comments.Add(comment);
+        _context.SaveChanges();
     }
 
     public bool Update(Comment updatedComment)
     {
-        if (!_comments.TryGetValue(updatedComment.Id, out var existingComment))
-            return false;
+        var existingComment = _context.Comments.Find(updatedComment.Id);
+        if (existingComment == null) return false;
 
-        var mergedComment = new Comment
-        {
-            Id = existingComment.Id,
-            PostId = updatedComment.PostId != 0 ? updatedComment.PostId : existingComment.PostId,
-            Name = !string.IsNullOrEmpty(updatedComment.Name) ? updatedComment.Name : existingComment.Name,
-            Email = !string.IsNullOrEmpty(updatedComment.Email) ? updatedComment.Email : existingComment.Email,
-            Body = !string.IsNullOrEmpty(updatedComment.Body) ? updatedComment.Body : existingComment.Body
-        };
+        existingComment.PostId = updatedComment.PostId != 0 ? updatedComment.PostId : existingComment.PostId;
+        existingComment.Name = !string.IsNullOrEmpty(updatedComment.Name) ? updatedComment.Name : existingComment.Name;
+        existingComment.Email = !string.IsNullOrEmpty(updatedComment.Email) ? updatedComment.Email : existingComment.Email;
+        existingComment.Body = !string.IsNullOrEmpty(updatedComment.Body) ? updatedComment.Body : existingComment.Body;
 
-        _comments[updatedComment.Id] = mergedComment;
+        _context.SaveChanges();
         return true;
     }
 
+    public bool Delete(int id)
+    {
+        var comment = _context.Comments.Find(id);
+        if (comment == null) return false;
 
-    public bool Delete(int id) => _comments.Remove(id);
+        _context.Comments.Remove(comment);
+        _context.SaveChanges();
+        return true;
+    }
 }

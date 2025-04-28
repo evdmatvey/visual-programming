@@ -1,0 +1,35 @@
+.root {
+  width: 200px;
+  padding: 20px;
+  background: #fff;
+  height: 100vh;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.menu a {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 12px;
+  color: #000;
+  text-transform: capitalize;
+  transition: background 0.15s linear;
+
+  @media (hover: hover) {
+    &:hover {
+      background: #f2f2f2;
+    }
+  }
+}
+
+.menu a.active {
+  background: #d0ecff;
+}

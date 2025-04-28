@@ -1,0 +1,13 @@
+.root {
+  width: 200px;
+  padding: 7px 30px;
+  background: red;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.root:disabled {
+  background: #930707;
+}

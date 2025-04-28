@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './DataCell.module.css';
-import { useRef } from 'react';
 
 export const DataCell = ({ value, isSelected, isSmall, updateHandler, row, columnId }) => {
   const [localValue, setLocalValue] = useState(value);
   const ref = useRef();
+
+  useEffect(() => setLocalValue(value), [value]);
 
   const handleChange = (e) => {
     setLocalValue(e.target.value);
@@ -12,17 +13,15 @@ export const DataCell = ({ value, isSelected, isSmall, updateHandler, row, colum
 
   const handleBlur = () => {
     if (localValue !== value) {
-      updateHandler(row.id, { [columnId]: localValue });
+      updateHandler(row.id, {
+        [columnId]: columnId === 'id' ? Number(localValue) : localValue,
+      });
     }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      ref.current.blur();
-      handleBlur();
-    } else if (e.key === 'Escape') {
-      setLocalValue(value);
-    }
+    if (e.key === 'Enter') ref.current.blur();
+    else if (e.key === 'Escape') setLocalValue(value);
   };
 
   const classes = [styles.content, isSmall ? styles.small : ''].join(' ');
@@ -32,7 +31,7 @@ export const DataCell = ({ value, isSelected, isSmall, updateHandler, row, colum
       {isSelected ? (
         <input
           ref={ref}
-          type="text"
+          type={columnId === 'id' ? 'number' : 'text'}
           className={styles.root}
           value={localValue}
           onChange={handleChange}
